@@ -20,4 +20,5 @@ class CategoriesAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Category, CategoriesAdmin)
 admin.site.register(models.Products, ProductsAdmin)
+admin.site.register(models.Review)
 

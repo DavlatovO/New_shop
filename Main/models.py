@@ -1,5 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import AbstractUser
+
+
 
 class Category(models.Model):
     name = models.CharField(max_length=255, verbose_name="Kategoriya", unique=True)
@@ -27,8 +30,13 @@ class Products(models.Model):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
-
     def __str__(self):
         return self.name
+
+class Review(models.Model):
+    mark = models.IntegerField()
+    product = models.ForeignKey(Products, on_delete=models.CASCADE)
+    text = models.TextField()
+    
 
 
