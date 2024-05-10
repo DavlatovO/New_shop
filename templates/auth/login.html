@@ -1,49 +1,64 @@
+<!doctype html>
 {% load static %}
+<html lang="en">
+  <head>
+  	<title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-<link href="{% static 'front/css/login.css' %}" rel="stylesheet">
-</head>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-<div class="page">
-  <div class="container">
-    <div class="left">
-      <div class="login">Login</div>
-      <div class="eula">By logging in you agree to the ridiculously long terms that you didn't bother to read</div>
-      <a href="{% url 'auth:register' %}">No account? Register here</a>
-      </div>
-    <div class="right">
-      <svg viewBox="0 0 320 300">
-        <defs>
-          <linearGradient
-                          inkscape:collect="always"
-                          id="linearGradient"
-                          x1="13"
-                          y1="193.49992"
-                          x2="307"
-                          y2="193.49992"
-                          gradientUnits="userSpaceOnUse">
-            <stop
-                  style="stop-color:#ff00ff;"
-                  offset="0"
-                  id="stop876" />
-            <stop
-                  style="stop-color:#ff0000;"
-                  offset="1"
-                  id="stop878" />
-          </linearGradient>
-        </defs>
-        <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
-      </svg>
-      <div class="form">
-        <label for="email">Email</label>
-        <input type="email" id="email">
-        <label for="password">Password</label>
-        <input type="password" id="password">
-        <input type="submit" id="submit" value="Submit">
-      </div>
-    </div>
-  </div>
-    
-</div>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'front/login/css/style.css' %}">
 
-<script src="{% static 'front/js/login.js' %}"></script>
+	</head>
+	<body class="img js-fullheight" style="background-image: url({% static 'front/login/images/bg.jpg' %});">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Login</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<h3 class="mb-4 text-center">Have an account?</h3>
+		      	<form method="POST" class="signin-form">
+              {% csrf_token %}
+		      		{{ form.as_p }}
+	            <div class="form-group">
+	            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+	            </div>
+	            <div class="form-group d-md-flex">
+	            	<div class="w-50">
+		            	<label class="checkbox-wrap checkbox-primary">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="{% url 'signup' %}" style="color: #fff">No account? Sign up</a>
+								</div>
+	            </div>
+	          </form>
+	          <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+	          <div class="social d-flex text-center">
+	          	<a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
+	          	<a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
+	          </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'front/login/js/jquery.min.js' %}"></script>
+  <script src="{% static 'front/login/js/popper.js' %}"></script>
+  <script src="{% static 'front/login/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'front/login/js/main.js' %}"></script>
+
+	</body>
+</html>
+
